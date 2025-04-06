@@ -1,11 +1,15 @@
 extern "C" {
-    pub fn alert(index: i32);
+    pub fn print_result(index: i32);
 }
 
 #[no_mangle] 
-pub fn greet(index: i32) {
-    println!("Hello from guest function, received {index}");
+pub fn sum(a: i32, b: i32) -> i32 {
+    let result = a + b;
+    println!("Result using wasip1: {result}");
+
     unsafe {
-        alert(64);
+        print_result(result);
     }
+
+    return result;
 }
