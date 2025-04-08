@@ -1,3 +1,5 @@
 target/
 Cargo.lock
-*.wasm
+wasm_lib.wasm
+sum.wasm
+sum.wat
