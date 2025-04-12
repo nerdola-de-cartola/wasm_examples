@@ -1,21 +1,22 @@
 mod host;
+mod config;
 
 use std::error::Error;
 
 use host::Host;
+use config::Config;
 
 fn main() -> Result<(), Box<dyn Error>> {
-    let mut host = Host::build("/home/gnery/Desktop/ericsson/wasm-workshop/components/statistics/component/statistics.wasm")?;
+    let config = Config::new()?;
+    let mut host = Host::build(&config.wasm_path)?;
     
-    let data = vec![1.0, 2.0, 3.0, 4.0, 5.0];
-    
-    let mean = host.call_mean(&data);
-    let median = host.call_median(&data);
-    let standard_deviation = host.call_standard_deviation(&data);
-    let variance = host.call_variance(&data);
-    let range = host.call_range(&data);
+    let mean = host.call_mean(&config.data);
+    let median = host.call_median(&config.data);
+    let standard_deviation = host.call_standard_deviation(&config.data);
+    let variance = host.call_variance(&config.data);
+    let range = host.call_range(&config.data);
     //TODO: call mode here
-    //let mode = host.call_mode(&data);
+    //let mode = host.call_mode(&config.data);
 
     println!("Mean: {}", mean);
     println!("Median: {}", median);
