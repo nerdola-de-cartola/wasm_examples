@@ -1,0 +1,16 @@
+{
+  "name": "statistics",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "build": "jco componentize index.js --wit wit/statistics.wit --world-name metrics --out statistics.wasm"
+  },
+  "dependencies": {
+    "@bytecodealliance/jco": "^1.10.2"
+  }
+
+}
