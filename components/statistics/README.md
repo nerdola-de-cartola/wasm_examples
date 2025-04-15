@@ -2,6 +2,8 @@
 
 This project demonstrates using WebAssembly Component Model to create a statistical analysis application with components written in different languages that work together.
 
+![Statistics Component Demo](images/image.png)
+
 ## Project Structure
 
 - `component/` - Python statistics component

@@ -1,5 +1,7 @@
 # RSA Encryption Project
 
+![RSA Component Demo](images/image.png)
+
 This project implements a WebAssembly-based RSA encryption system with two parties: Alice (sender) and Bob (receiver). The project demonstrates secure communication using RSA encryption in a WebAssembly environment.
 
 ## Project Structure
