@@ -1,8 +1,0 @@
-[package]
-name = "bob"
-version = "0.1.0"
-edition = "2021"
-
-[dependencies]
-wasmtime = "31.0.0"
-wasmtime-wasi = "31.0.0"

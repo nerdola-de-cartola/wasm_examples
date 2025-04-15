@@ -1,5 +1,0 @@
-package demo:runner@0.1.0;
-
-world runner {
-    import demo:statistics/statistics@0.1.0;
-}
