@@ -1,3 +1,5 @@
+.PHONY: statistics.wasm runner.wasm app.wasm
+
 statistics.wasm:
 	PYTHONPATH=. componentize-py \
 		--wit-path component/wit/statistics.wit \
