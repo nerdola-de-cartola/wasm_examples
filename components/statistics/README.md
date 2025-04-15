@@ -1,123 +1,72 @@
-# Statistics WebAssembly Component
+# WASM Statistics Component Demo
 
-This project implements a WebAssembly component that provides statistical calculations. It consists of two main parts: a JavaScript-based statistics component and a Rust-based component runner.
+This project demonstrates using WebAssembly Component Model to create a statistical analysis application with components written in different languages that work together.
 
 ## Project Structure
 
-```
-.
-├── component/           # JavaScript statistics component
-│   ├── index.js        # Statistics implementation
-│   ├── package.json    # Node.js dependencies
-│   └── wit/            # WebAssembly Interface Types
-│       └── statistics.wit
-└── component-runner/   # Rust-based component runner
-    ├── src/           # Rust source code
-    ├── Cargo.toml     # Rust dependencies
-    └── wit/           # WebAssembly Interface Types
-        └── statistics.wit
-```
+- `component/` - Python statistics component
+  - `app.py` - Implementation of statistics functions using Python's statistics module
+  - `wit/` - WebAssembly Interface Types (WIT) definitions
+    - `statistics.wit` - Interface for statistical operations
+
+- `runner/` - Rust runner application
+  - `src/main.rs` - Main application that uses the Python component
+  - `src/config.rs` - Configuration and utility functions
+  - `wit/` - WebAssembly Interface Types (WIT) definitions
+    - `runner.wit` - World definition that imports the statistics component
 
 ## Features
 
-The statistics component provides the following statistical calculations:
+The statistics component provides the following functionality:
+- Mean calculation
+- Median calculation
+- Standard deviation calculation
+- Variance calculation
+- Range calculation
 
-- **Mean**: Calculates the arithmetic mean of a list of numbers
-- **Standard Deviation**: Computes the standard deviation of a dataset
-- **Median**: Finds the median value in a dataset
-- **Variance**: Calculates the statistical variance
-- **Range**: Determines the range (difference between max and min values)
+## Building
 
-## Prerequisites
-
-- Node.js (for the JavaScript component)
-- Rust (for the component runner)
-- [JCO](https://github.com/bytecodealliance/jco) (JavaScript Component Object) tool
-
-## Installation
-
-1. Install the JavaScript component dependencies:
-```bash
-cd component
-npm install
-```
-
-2. Install the Rust component runner dependencies:
-```bash
-cd component-runner
-cargo build --release
-```
-
-## Building the Component
-
-To build the WebAssembly component:
+The project uses a Makefile to build all components:
 
 ```bash
-cd component
-npm run build
+# Build the Python statistics component
+make statistics.wasm
+
+# Build the Rust runner
+make runner.wasm
+
+# Link components together
+make app.wasm
 ```
 
-This will generate a `statistics.wasm` file in the component directory.
+## Requirements
+
+- [componentize-py](https://github.com/bytecodealliance/componentize-py) - For building Python components
+- [cargo-component](https://github.com/bytecodealliance/cargo-component) - For building Rust components
+- [wac](https://github.com/bytecodealliance/wac) - For linking components
+
+## How it Works
+
+1. The Python component (`component/app.py`) implements statistical functions using Python's built-in statistics module.
+2. The interface is defined in WebAssembly Interface Type (WIT) in `component/wit/statistics.wit`.
+3. The Rust runner application imports and uses these functions to calculate statistics on user-provided numbers.
+4. The components are linked together using WebAssembly Component Model tools.
 
 ## Usage
 
-The component can be used in both JavaScript and Rust environments. The interface is defined in the WIT (WebAssembly Interface Types) files:
-
-```wit
-interface statistics {
-    mean: func(numbers: list<f64>) -> f64;
-    standard-deviation: func(numbers: list<f64>) -> f64;
-    median: func(numbers: list<f64>) -> f64;
-    variance: func(numbers: list<f64>) -> f64;
-    range: func(numbers: list<f64>) -> f64;
-}
-```
-
-### Rust Usage
-
-The component runner provides a Rust interface to the WebAssembly component. Refer to the `component-runner/src` directory for implementation details.
-
-#### Running the Rust Component Runner
-
-1. First, build the WebAssembly component as described above.
-
-2. Then, run the Rust component runner with the path to the WebAssembly file:
+After building the application with `make app.wasm`, you can run it with a WebAssembly runtime that supports the Component Model:
 
 ```bash
-cd component-runner
-cargo run --release -- ../component/statistics.wasm
+wasmtime app.wasm
 ```
 
-3. The program will prompt you to enter numbers separated by spaces:
+The application will prompt you to enter a space-separated list of numbers and will output various statistical calculations on those numbers.
 
-```
-Enter numbers separated by spaces (e.g., 1.0 2.0 3.0):
-```
+## Architecture
 
-4. Enter your numbers and press Enter. The program will calculate and display the following statistics:
+This project demonstrates cross-language component composition using WebAssembly:
+- A Python component providing statistical calculations
+- A Rust component consuming these calculations
+- WIT (WebAssembly Interface Types) for type-safe interfaces between components
 
-```
-Mean: 3.0
-Median: 3.0
-Standard Deviation: 1.5811388300841898
-Variance: 2.5
-Range: 4.0
-```
-
-## Development
-
-- The JavaScript implementation is in `component/index.js`
-- The WIT interface definitions are in both `component/wit/` and `component-runner/wit/`
-- The Rust runner implementation is in `component-runner/src/`
-
-## License
-
-ISC License
-
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a new Pull Request 
+This showcases how WebAssembly Component Model allows for language-agnostic modular applications. 

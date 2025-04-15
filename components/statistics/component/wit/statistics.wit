@@ -1,4 +1,4 @@
-package wasmp2:demo@0.1.0;
+package demo:statistics@0.1.0;
 
 interface statistics {
     mean: func(numbers: list<f64>) -> f64;
@@ -6,9 +6,6 @@ interface statistics {
     median: func(numbers: list<f64>) -> f64;
     variance: func(numbers: list<f64>) -> f64;
     range: func(numbers: list<f64>) -> f64;
-
-    //TODO: Set mode interface here
-    //mode: func(numbers: list<f64>) -> list<f64>;
 }
 
 world metrics {
