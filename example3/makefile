@@ -1,5 +1,5 @@
 WASI_SDK_PATH=/opt/wasi-sdk
-CC=${WASI_SDK_PATH}/bin/clang --target=wasm32 --no-standard-libraries -Wl,--export-all -Wl,--no-entry -Wl,--allow-undefined 
+CC=${WASI_SDK_PATH}/bin/clang --target=wasm32 --no-standard-libraries -Wl,--export-all -Wl,--no-entry -Wl,--allow-undefined -O2
 
 sum.wasm: sum.c
 	$(CC) sum.c -o sum.wasm
