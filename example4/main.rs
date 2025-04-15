@@ -3,12 +3,12 @@ use wasmtime_wasi::preview1::{self, WasiP1Ctx};
 use wasmtime_wasi::WasiCtxBuilder;
 
 fn print_result(x: i32) {
-    println!("Result using host function {x}")
+    println!("Result using host function: {x}")
 }
 
 fn main() -> Result<()> {
     let engine = Engine::default();
-    let module = Module::from_file(&engine, "wasm_lib.wasm")?;
+    let module = Module::from_file(&engine, "sum.wasm")?;
     
     let wasi_ctx = WasiCtxBuilder::new()
     .inherit_stdio()
