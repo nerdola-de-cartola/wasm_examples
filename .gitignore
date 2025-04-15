@@ -1,6 +1,4 @@
 target/
 Cargo.lock
-wasm_lib.wasm
-wams_lib.wat
-sum.wasm
-sum.wat
+*.wasm
+node_modules/

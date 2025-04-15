@@ -1,0 +1,13 @@
+package demo:statistics@0.1.0;
+
+interface statistics {
+    mean: func(numbers: list<f64>) -> f64;
+    standard-deviation: func(numbers: list<f64>) -> f64;
+    median: func(numbers: list<f64>) -> f64;
+    variance: func(numbers: list<f64>) -> f64;
+    range: func(numbers: list<f64>) -> f64;
+}
+
+world metrics {
+    export statistics;
+}
