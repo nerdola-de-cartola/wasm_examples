@@ -1,14 +1,18 @@
-from wasmtime import Store, Module, Instance, Func, FuncType, ValType # type: ignore
+from wasmtime import Store, Module, FuncType, ValType, Linker, Engine # type: ignore
 
 def print_result(x):
     print(f"Host function: {x}")
 
-store = Store()
+engine = Engine()
+store = Store(engine)
 module = Module.from_file(store.engine, 'sum.wasm')
-print_result_type = FuncType([ValType.i32()], [])
-print_result_wrapper = Func(store, print_result_type, print_result)
-imports = [print_result_wrapper]
-instance = Instance(store, module, imports)
+
+linker = Linker(engine)
+func_type = FuncType([ValType.i32()], [])
+linker.define_func("env", "print_result", func_type,print_result)
+
+instance = linker.instantiate(store, module)
+
 exports = instance.exports(store)
 sum = exports["sum"]
 result = sum(store, 20, 22)
