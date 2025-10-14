@@ -1,0 +1,11 @@
+(module
+  (type (;0;) (func (param i32 i32) (result i32))) (;Type for sum;)
+  (export "sum" (func 0))
+  (func (;0;) (type 0)
+    (;Receive a and b as parameters;)
+    local.get 0 (;Push var a to the stack;)
+    local.get 1 (;Push var b to the stack;)
+    i32.add (;Add a and b;)
+    (;Return a+b;)
+  )
+)
