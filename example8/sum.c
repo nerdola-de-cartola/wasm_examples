@@ -1,6 +1,4 @@
-void print_result(int x);
-
-int GLOBAL_COUNT = 0;
+int __attribute__((address_space(1))) GLOBAL_COUNT = 0;
 
 void inc() {
     GLOBAL_COUNT++;
@@ -8,8 +6,4 @@ void inc() {
 
 void dec() {
     GLOBAL_COUNT--;
-}
-
-void print() {
-    print_result(GLOBAL_COUNT);
 }

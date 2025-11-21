@@ -1,2 +1,1 @@
-void *linear_memory = "Hello, World!";
-
+char message[] = "Hello, World!";

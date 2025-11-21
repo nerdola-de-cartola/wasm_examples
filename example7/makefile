@@ -7,5 +7,9 @@ sum.wasm: sum.wat
 python: sum.wasm main.py
 	python main.py
 
+compile: sum.c
+	$(CC) sum.c -o sum2.wasm
+	wasm-tools print sum2.wasm -o sum2.wat
+
 clean:
 	rm sum.wasm

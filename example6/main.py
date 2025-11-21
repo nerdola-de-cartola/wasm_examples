@@ -1,4 +1,4 @@
-from wasmtime import Store, Module, FuncType, ValType, Linker, Engine # type: ignore
+from wasmtime import Store, Module, FuncType, ValType, Linker, Engine
 
 def print_result(x):
     print(f"Host function: {x}")

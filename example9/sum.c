@@ -1,7 +1,7 @@
-extern void *linear_memory;
+void *memory;
 
 void set() {
-    char *lm = (char *) linear_memory;
+    char *lm = (char *) memory;
     lm[0] = 'H';
     lm[1] = 'E';
     lm[2] = 'L';

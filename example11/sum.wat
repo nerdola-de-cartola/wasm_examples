@@ -5,8 +5,8 @@
   ;; Tabela com 2 entradas de funções
   (table (;0;) 2 funcref)
 
-  ;; Inicializa a tabela com duas funções
-  (elem (i32.const 0) 0 1)
+  ;; Inicializa a tabela com duas funções 0 e 1
+  (elem (i32.const 0) func 0 1)
 
   (export "table" (table 0))
   (export "call_func" (func 2))

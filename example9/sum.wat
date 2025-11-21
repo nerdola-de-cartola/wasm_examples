@@ -2,14 +2,15 @@
   (type (;0;) (func (param) (result))) ;;Type for set
 
   (memory (;0;) 1) ;; Define 1 page (64KB) of memory and export it
+  (memory (;0;) 1) ;; Define 1 page (64KB) of memory and export it
 
-  (export "linear_memory" (memory 0))
+  (export "memory" (memory 0))
   (export "set"(func 0))
 
   (func (;0;) (type 0)
     i32.const 0
     i32.const 72 ;; H
-    i32.store
+    i32.store 0
 
     i32.const 1
     i32.const 69 ;; E

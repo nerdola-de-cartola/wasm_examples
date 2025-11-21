@@ -8,9 +8,9 @@ linker = Linker(engine)
 instance = linker.instantiate(store, module)
 exports = instance.exports(store)
 
-linear_memory = exports["linear_memory"]
+memory = exports["memory"]
 set = exports["set"]
 set(store)
-data = linear_memory.read(store, 0, 6)
+data = memory.read(store, 0, 6)
 message = data.decode()
 print(f"From python: {message}")

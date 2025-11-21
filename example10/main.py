@@ -2,13 +2,14 @@ from wasmtime import Store, Module, Linker, Engine # type: ignore
 
 engine = Engine()
 store = Store(engine)
-module = Module.from_file(store.engine, 'sum.wasm')
+module = Module.from_file(store.engine, 'sum.wat')
 
 linker = Linker(engine)
 instance = linker.instantiate(store, module)
 exports = instance.exports(store)
 
-linear_memory = exports["linear_memory"]
-data = linear_memory.read(store, 0, 14)
+memory = exports["memory"]
+message = exports["message"].value(store)
+data = memory.read(store, message, message+14)
 message = data.decode()
-print(f"From python: {message}")
+print(message)

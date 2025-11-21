@@ -8,7 +8,7 @@
     local.get 0 (;Push var a to the stack;)
     local.get 1 (;Push var b to the stack;)
     i32.add (;Add a and b;)
-    local.tee 0 (;Copy a+b to var a;)
+    local.tee 0 (;Copy a+b to var 0;)
     call 0 (;Call print_result passing a+b;)
     local.get 0 (;Copy a+b from var 0 to the stack;)
     (;Return a+b;)
