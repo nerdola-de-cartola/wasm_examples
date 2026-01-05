@@ -1,4 +1,4 @@
-from wasmtime import Store, Module, Linker, Engine # type: ignore
+from wasmtime import Store, Module, Linker, Engine
 
 engine = Engine()
 store = Store(engine)
