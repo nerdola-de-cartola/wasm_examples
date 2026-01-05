@@ -4,3 +4,6 @@ rust.wasm: src/main.rs
 
 run: rust.wasm
 	wasmtime run --dir ./wasi-data::. rust.wasm
+
+disassemble: rust.wasm
+	wasm-tools print rust.wasm -o rust.wat

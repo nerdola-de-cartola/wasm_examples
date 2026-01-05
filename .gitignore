@@ -2,3 +2,4 @@ target/
 Cargo.lock
 *.wasm
 node_modules/
+wasi/file_system/rust/rust.wat
