@@ -3,3 +3,5 @@ Cargo.lock
 *.wasm
 node_modules/
 wasi/file_system/rust/rust.wat
+wasi/network/rust/wasi-client.wat
+wasi/network/rust/wasi-server.wat
