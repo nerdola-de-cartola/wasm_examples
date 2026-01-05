@@ -1,0 +1,1 @@
+This was written from a WASM + WASI program!
