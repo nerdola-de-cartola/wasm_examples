@@ -1,0 +1,46 @@
+(base) matheus-lucas@vivobook:~/Desktop/wasm-workshop/wasi_examples/threads/rust$ wasmtime run -W help
+Available wasm options:
+
+  -W           nan-canonicalization[=y|n] -- Enable canonicalization of all NaN values.
+  -W                               fuel=N -- Enable execution fuel with N units fuel, trapping after running out of fuel.
+  -W             epoch-interruption[=y|n] -- Yield when a global epoch counter changes, allowing for async operation without blocking the executor.
+  -W                     max-wasm-stack=N -- Maximum stack size, in bytes, that wasm is allowed to consume before a stack overflow is reported.
+  -W                   async-stack-size=N -- Stack size, in bytes, that will be allocated for async stacks.
+  -W            async-stack-zeroing[=y|n] -- Configures whether or not stacks used for async futures are zeroed before (re)use as a defense-in-depth mechanism. (default: false)
+  -W          unknown-exports-allow[=y|n] -- Allow unknown exports when running commands.
+  -W           unknown-imports-trap[=y|n] -- Allow the main module to import unknown functions, using an implementation that immediately traps, when running commands.
+  -W        unknown-imports-default[=y|n] -- Allow the main module to import unknown functions, using an implementation that returns default values, when running commands.
+  -W                      wmemcheck[=y|n] -- Enables memory error checking. (see wmemcheck.md for more info)
+  -W                    max-memory-size=N -- Maximum size, in bytes, that a linear memory is allowed to reach.
+  -W                 max-table-elements=N -- Maximum size, in table elements, that a table is allowed to reach.
+  -W                      max-instances=N -- Maximum number of WebAssembly instances allowed to be created.
+  -W                         max-tables=N -- Maximum number of WebAssembly tables allowed to be created.
+  -W                       max-memories=N -- Maximum number of WebAssembly linear memories allowed to be created.
+  -W           trap-on-grow-failure[=y|n] -- Force a trap to be raised on `memory.grow` and `table.grow` failure instead of returning -1 from these instructions.
+  -W                  timeout=N|Ns|Nms|.. -- Maximum execution time of wasm code before timing out (1, 2s, 100ms, etc)
+  -W                  all-proposals[=y|n] -- Configures support for all WebAssembly proposals implemented.
+  -W                    bulk-memory[=y|n] -- Configure support for the bulk memory proposal.
+  -W                   multi-memory[=y|n] -- Configure support for the multi-memory proposal.
+  -W                    multi-value[=y|n] -- Configure support for the multi-value proposal.
+  -W                reference-types[=y|n] -- Configure support for the reference-types proposal.
+  -W                           simd[=y|n] -- Configure support for the simd proposal.
+  -W                   relaxed-simd[=y|n] -- Configure support for the relaxed-simd proposal.
+  -W     relaxed-simd-deterministic[=y|n] -- Configure forcing deterministic and host-independent behavior of the relaxed-simd instructions.
+  -W                      tail-call[=y|n] -- Configure support for the tail-call proposal.
+  -W                        threads[=y|n] -- Configure support for the threads proposal.
+  -W      shared-everything-threads[=y|n] -- Configure support for the shared-everything-threads proposal.
+  -W                       memory64[=y|n] -- Configure support for the memory64 proposal.
+  -W                component-model[=y|n] -- Configure support for the component-model proposal.
+  -W          component-model-async[=y|n] -- Component model support for async lifting/lowering.
+  -W component-model-async-builtins[=y|n] -- Component model support for async lifting/lowering: this corresponds to the 🚝 emoji in the component model specification.
+  -W component-model-async-stackful[=y|n] -- Component model support for async lifting/lowering: this corresponds to the 🚟 emoji in the component model specification.
+  -W  component-model-error-context[=y|n] -- Component model support for `error-context`: this corresponds to the 📝 emoji in the component model specification.
+  -W             component-model-gc[=y|n] -- GC support in the component model: this corresponds to the 🛸 emoji in the component model specification.
+  -W            function-references[=y|n] -- Configure support for the function-references proposal.
+  -W                stack-switching[=y|n] -- Configure support for the stack-switching proposal.
+  -W                             gc[=y|n] -- Configure support for the GC proposal.
+  -W              custom-page-sizes[=y|n] -- Configure support for the custom-page-sizes proposal.
+  -W                wide-arithmetic[=y|n] -- Configure support for the wide-arithmetic proposal.
+  -W                 extended-const[=y|n] -- Configure support for the extended-const proposal.
+  -W                     exceptions[=y|n] -- Configure support for the exceptions proposal.
+  -W                     gc-support[=y|n] -- Whether or not any GC infrastructure in Wasmtime is enabled or not.

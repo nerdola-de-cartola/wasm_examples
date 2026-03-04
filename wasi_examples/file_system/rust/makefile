@@ -1,9 +1,9 @@
-rust.wasm: src/main.rs
-	cargo build --release --target wasm32-wasip1
-	cp target/wasm32-wasip1/release/rust.wasm rust.wasm
+main.wasm: src/main.rs
+	cargo build --target wasm32-wasip1
+	cp target/wasm32-wasip1/debug/rust.wasm main.wasm
 
-run: rust.wasm
-	wasmtime run --dir ./wasi-data::. rust.wasm
+run: main.wasm
+	wasmtime run --dir ./wasi-data::. main.wasm
 
-disassemble: rust.wasm
-	wasm-tools print rust.wasm -o rust.wat
+disassemble: main.wasm
+	wasm-tools print main.wasm -o main.wat

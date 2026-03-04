@@ -1,9 +1,7 @@
 use std::fs;
 use std::io::{self, Write};
 
-fn list_dir() -> io::Result<()> {
-    let dir = "."; // current preopened directory
-
+fn list_dir(dir: &str) -> io::Result<()> {
     println!("Listing files in directory: {}", dir);
 
     for entry in fs::read_dir(dir)? {
@@ -18,12 +16,9 @@ fn list_dir() -> io::Result<()> {
     Ok(())
 }
 
-
 fn main() -> io::Result<()> {
-    println!("WASI file example started");
-
-    println!("CWD = {:?}", std::env::current_dir());
-    let _ = list_dir();
+    // List files in the specified directory
+    list_dir(".")?;
 
     // Read a file
     let input = fs::read_to_string("input.txt")?;
@@ -32,7 +27,7 @@ fn main() -> io::Result<()> {
 
     // Write a file
     let mut file = fs::File::create("output.txt")?;
-    writeln!(file, "This was written from a WASM + WASI program!")?;
+    writeln!(file, "This was written using WASI")?;
 
     println!("Wrote to output.txt");
 

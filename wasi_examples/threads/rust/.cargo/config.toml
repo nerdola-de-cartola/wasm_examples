@@ -1,0 +1,4 @@
+[target.wasm32-wasip1-threads]
+rustflags = [
+  "-C", "target-feature=+atomics,+bulk-memory,+mutable-globals"
+]

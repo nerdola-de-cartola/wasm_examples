@@ -1,0 +1,30 @@
+(base) matheus-lucas@vivobook:~/Desktop/wasm-workshop/wasi_examples/threads/rust$ wasmtime run -S help
+Available wasi options:
+
+  -S                            cli[=y|n] -- Enable support for WASI CLI APIs, including filesystems, sockets, clocks, and random.
+  -S             cli-exit-with-code[=y|n] -- Enable WASI APIs marked as: @unstable(feature = cli-exit-with-code)
+  -S                         common[=y|n] -- Deprecated alias for `cli`
+  -S                             nn[=y|n] -- Enable support for WASI neural network imports (experimental)
+  -S                        threads[=y|n] -- Enable support for WASI threading imports (experimental). Implies preview2=false.
+  -S                           http[=y|n] -- Enable support for WASI HTTP imports
+  -S   http-outgoing-body-buffer-chunks=N -- Number of distinct write calls to the outgoing body's output-stream that the implementation will buffer. Default: 1.
+  -S      http-outgoing-body-chunk-size=N -- Maximum size allowed in a write call to the outgoing body's output-stream. Default: 1024 * 1024.
+  -S                         config[=y|n] -- Enable support for WASI config imports (experimental)
+  -S                       keyvalue[=y|n] -- Enable support for WASI key-value imports (experimental)
+  -S                       listenfd[=y|n] -- Inherit environment variables and file descriptors following the systemd listen fd specification (UNIX only) (legacy wasip1 implementation only)
+  -S                        tcplisten=val -- Grant access to the given TCP listen socket (experimental, legacy wasip1 implementation only)
+  -S                            tls[=y|n] -- Enable support for WASI TLS (Transport Layer Security) imports (experimental)
+  -S                       preview2[=y|n] -- Implement WASI Preview1 using new Preview2 implementation (true, default) or legacy implementation (false)
+  -S             nn-graph=<format>::<dir> -- Pre-load machine learning graphs (i.e., models) for use by wasi-nn.
+  -S                inherit-network[=y|n] -- Flag for WASI preview2 to inherit the host's network within the guest so it has full access to all addresses/ports/etc.
+  -S           allow-ip-name-lookup[=y|n] -- Indicates whether `wasi:sockets/ip-name-lookup` is enabled or not.
+  -S                            tcp[=y|n] -- Indicates whether `wasi:sockets` TCP support is enabled or not.
+  -S                            udp[=y|n] -- Indicates whether `wasi:sockets` UDP support is enabled or not.
+  -S             network-error-code[=y|n] -- Enable WASI APIs marked as: @unstable(feature = network-error-code)
+  -S                       preview0[=y|n] -- Allows imports from the `wasi_unstable` core wasm module.
+  -S                    inherit-env[=y|n] -- Inherit all environment variables from the parent process.
+  -S              config-var=<name>=<val> -- Pass a wasi config variable to the program.
+  -S keyvalue-in-memory-data=<name>=<val> -- Preset data for the In-Memory provider of WASI key-value API.
+  -S                             p3[=y|n] -- Enable support for WASIp3 APIs.
+
+pass `-S help-long` to see longer-form explanations

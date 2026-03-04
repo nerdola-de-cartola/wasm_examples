@@ -4,7 +4,7 @@ use std::net::TcpStream;
 fn main() -> std::io::Result<()> {
     println!("WASI client connecting...");
 
-    let mut stream = TcpStream::connect("127.0.0.1:4000")?;
+    let mut stream = TcpStream::connect("localhost:4000")?;
 
     stream.write_all(b"Hello from WASI client!\n")?;
 
