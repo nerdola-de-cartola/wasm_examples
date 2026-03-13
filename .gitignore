@@ -1,5 +1,7 @@
 target/
 Cargo.lock
+wkg.lock
+**/wit/deps/
 *.wasm
 node_modules/
 wasi/file_system/rust/rust.wat

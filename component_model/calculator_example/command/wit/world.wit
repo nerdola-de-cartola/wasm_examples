@@ -1,0 +1,6 @@
+package docs:command@0.1.0;
+
+world command {
+    import docs:calculator/calculate@0.1.0;
+
+}

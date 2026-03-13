@@ -1,6 +1,6 @@
 ## Objetivo
 
-Entender o modelode componentes do WebAssembly através de uma demo sobre métodos estatísticos.
+Entender o modelo de componentes do WebAssembly através de uma demo sobre métodos estatísticos.
 
 ## Descrição
 
