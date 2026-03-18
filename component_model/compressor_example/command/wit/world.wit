@@ -1,0 +1,6 @@
+package example:command@0.1.0;
+
+world command {
+    import example:compressor/compress-interface@0.1.0;
+    export wasi:cli/run@0.2.7;
+}

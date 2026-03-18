@@ -1,0 +1,9 @@
+package example:compressor@0.1.0;
+
+interface compress-interface {
+    compress: func(buffer: string) -> string;
+}
+
+world compressor {
+    export compress-interface;
+}

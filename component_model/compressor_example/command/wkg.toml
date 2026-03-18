@@ -1,0 +1,2 @@
+[overrides]
+"example:compressor" = { path = "../compressor/wit" }
