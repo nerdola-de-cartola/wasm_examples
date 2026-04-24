@@ -8,6 +8,8 @@ linker = Linker(engine)
 instance = linker.instantiate(store, module)
 exports = instance.exports(store)
 
-func = exports["call_func"]
-print(f"From python: {func(store, 0, 12)}")
-print(f"From python: {func(store, 1, 12)}")
+call_func = exports["call_func"]
+add_one = call_func(store, 0, 12)
+double = call_func(store, 1, 12)
+print("From python: ", add_one)
+print("From python: ", double)

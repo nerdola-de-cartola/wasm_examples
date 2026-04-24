@@ -9,7 +9,9 @@ instance = linker.instantiate(store, module)
 exports = instance.exports(store)
 
 memory = exports["memory"]
-message = exports["message"].value(store)
-data = memory.read(store, message, message+14)
+message_index = exports["message_index"].value(store)
+message_size = exports["message_size"].value(store)
+data = memory.read(store, message_index, message_index+message_size)
+print(data)
 message = data.decode()
 print(message)

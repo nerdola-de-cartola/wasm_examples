@@ -2,17 +2,18 @@ from wasmtime import Store, Module, Linker, Engine # type: ignore
 
 engine = Engine()
 store = Store(engine)
-module = Module.from_file(store.engine, 'sum2.wasm')
+module = Module.from_file(store.engine, 'sum.wasm')
 
 linker = Linker(engine)
 instance = linker.instantiate(store, module)
 exports = instance.exports(store)
 
-add = exports["simd_add"]
+simd_add = exports["simd_add"]
 memory = exports["memory"]
-vec_pos = exports["vec_pos"].value(store)
-add(store)
-vec = memory.read(store, vec_pos, vec_pos+16)
+vec_index = exports["vec_index"].value(store)
+vec_size = exports["vec_size"].value(store)
+simd_add(store)
+vec = memory.read(store, vec_index, vec_index+vec_size)
 
 i = 0
 lst = []
@@ -26,4 +27,4 @@ for byte in vec:
         num.clear()
         i = 0
 
-print(f"From python: {lst}")
+print("From python: ", lst)
